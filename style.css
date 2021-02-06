@@ -18,7 +18,7 @@ h2 {
     padding: 10px;
     height: 400px;
     width: 50%;
-    position: relative;
+    position: absolute;
     top: 300px;
 }
 
@@ -51,7 +51,7 @@ h2 {
     border-radius: 15px;
     box-shadow: 0 9px #999;
     position: relative;
-    top: 800px;
+    top: 1000px;
 }
   
 .button:hover {background-color: #3e8e41}
