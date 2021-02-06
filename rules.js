@@ -14,11 +14,11 @@ function make2DArray(cols, rows) {
     }
     return arr;
   }
-  
+//   
   let grid;
   let cols;
   let rows;
-  let resolution = 10;
+  let resolution = 40;
   
   function setup() {
     createCanvas(600, 400);
