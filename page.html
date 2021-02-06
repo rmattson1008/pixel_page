@@ -13,19 +13,25 @@
         </div>
 
         <h2 style = "color:white"> Jon Conway's Version</h2>
-        <div class ="jscript">
-            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.min.js"></script>
-            <script type="text/javascript" src="rules.js"></script>
-        </div>
-
-
-        <button class="button" onClick="window.location.reload();" >Play!</button>
         
-        <div class ="version1">
-            <canvas id="canvas" width="1280px" height="720px"></canvas>
-            <!-- Ok so we need to link the button on this side with a button and a listening function on the rules page -->
-            <script src="rules2.js"></script> 
+        <div class ="flex">
+            <div class = "jscript">
+                <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.min.js"></script>
+                <script type="text/javascript" src="rules.js"></script>
+            </div>
+            <div class = "button">
+                <button class="button" onClick="window.location.reload();" >Play!</button>
+            </div>
         </div>
+
+
+
+        
+        <!--<div class ="version1">
+            <canvas id="canvas" width="1280px" height="720px"></canvas>
+            Ok so we need to link the button on this side with a button and a listening function on the rules page
+            <script src="rules2.js"></script> 
+        </div> -->
 
         <!-- <button class="button" onclick="draw()" >Play!</button> -->
     </body>
