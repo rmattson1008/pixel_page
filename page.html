@@ -13,21 +13,20 @@
         </div>
 
         <h2 style = "color:white"> Jon Conway's Version</h2>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.min.js"></script>
-        <script type="text/javascript" src="rules.js"></script>
+        <div class ="jscript">
+            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.min.js"></script>
+            <script type="text/javascript" src="rules.js"></script>
+        </div>
 
         <script>
-            function load_js()
+            function refresh()
             {
-               var head= document.getElementsByTagName('body')[0];
-               var script= document.createElement('script');
-               script.src= 'https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.min.js';
-               head.appendChild(script);
+                var url = new URL("https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.min.js");
+               ('.jscript').load(url);
             }
-            load_js();
          </script>
 
-        <button class="button" onclick="load_js" >Play!</button>
+        <button class="button" onclick={refresh} >Play!</button>
         
 
         <canvas id="canvas" width="1280px" height="720px"></canvas>
