@@ -64,3 +64,6 @@ h2 {
     display: flex;
     flex-direction: column;
 }
+
+.flex -> .jscript {order: 1;}
+.flex -> .button {order: 2;}
