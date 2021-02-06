@@ -20,6 +20,8 @@ script {
     width: 100px;
     height: 100px;
     background: #555;
+    position: relative;
+    top: -50px;
 }
 
 .header h1 {
