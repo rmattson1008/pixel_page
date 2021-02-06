@@ -6,7 +6,8 @@ const status = document.getElementById('status');
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const lineColor = '#338';
-const fillColor = 'skyblue';
+
+fillColor = '0x0';
 // const fillColor2 = 'crimson'
 let seedIndex = -1;
 let timer = 0;
@@ -15,61 +16,66 @@ let ROWS = 0;
 let COLS = 0;
 let grid = null;
 
+nextColor = function() {
+    // copied 
 
-// apply rules to a cell
-isAlive = function(snapshot, i, j) {
-    let result = snapshot[i][j];
-    // result = false;
-    let numNeighbors = 0;
-
-    //corners 
-    if (i == 0) {
-        // console.log(' in first case');
-        numNeighbors = snapshot[i][j+1] + snapshot[i+1][j] + snapshot[i+1][j+1]; //corner
-        if (j !=0 ) {
-            numNeighbors+= snapshot[i][j-1] + snapshot[i+1][j+1];
-        } else if (j != (COLS-1) ) {
-            numNeighbors += snapshot[i+1][j+1] + snapshot[i][j+1]
-        }
-    }  else if (i == (ROWS -1) ) {
-        numNeighbors = snapshot[i-1][j-1] + snapshot[i-1][j]+ snapshot[i][j-1];
-        if (j != (COLS -1)){
-            numNeighbors+= snapshot[i-1][j+1] + snapshot[i][j];
-        } else if (j != 0) {
-            numNeighbors += snapshot[i][j-1] + snapshot[i-1][j-1]; 
-        }
-    }   else { //general
-        // console.log(' in general case');
-        numNeighbors = snapshot[i-1][j-1] + snapshot[i-1][j] + snapshot[i-1][j+1] + snapshot[i][j-1] + snapshot[i][j+1] + snapshot[i+1][j-1] + snapshot[i+1][j] + snapshot[i+1][j+1];
+    while (0x0 <= fillColor <= 0x1000000) {
+        fillColor++;
+        let hexcode = '#' + fillColor.toString(16).padStart(6, "0");
     }
+    return hexcode;
     
+    // var stringToColour = function(str) {
+    //     var hash = 0;
+    //     for (var i = 0; i < str.length; i++) {
+    //       hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    //     }
+    //     var colour = '#';
+    //     for (var i = 0; i < 3; i++) {
+    //       var value = (hash >> (i * 8)) & 0xFF;
+    //       colour += ('00' + value.toString(16)).substr(-2);
+    //     }
+    //     return colour;
+    //   }
 
-    if (snapshot[i][j] == false && numNeighbors == 3 ){
+
+    // Number(color)
+    // color--;
+    // return '#' + color;
+}
+// apply rules to a cell
+isAlive = function(cell, i, j) {
+    let result = cell[i][j];
+    // result = false;
+    let numNeighbors = countNeighbors(i, cell, j);
+    
+    // Rules
+    if (cell[i][j] == false && numNeighbors == 3) {
         result = true;
-    } else if (snapshot[i][j] == true && (numNeighbors < 2 || numNeighbors > 3)){
+    } else if (cell[i][j] == true && (numNeighbors < 2 )){//|| numNeighbors > 3)){
         result = false;
     }
     // } else;
     // if (numNeighbors < 2) {
     //     result = false; // cell dies
-    // } else if (2 <= numNeighbors < 3 && snapshot[i][j] == true) {
+    // } else if (2 <= numNeighbors < 3 && cell[i][j] == true) {
     //     result = true; // no change
-    // } else if (numNeighbors == 3 && snapshot[i][j] == false) {
+    // } else if (numNeighbors == 3 && cell[i][j] == false) {
     //     result = true; // cell is born
-    // } else if (numNeighbors >= 3 && snapshot[i][j] == true){
+    // } else if (numNeighbors >= 3 && cell[i][j] == true){
     //     result = false;
     // }
 
-    console.log(`${i} ${j} ${numNeighbors} ${result}`);
+    // console.log(`${i} ${j} ${numNeighbors} ${result}`);
     return result;
 };
 
 // evolve lifecycle
 evolve = function() {
-    const snapshot = [...Array(ROWS)].map((v,i) => Array.from(grid[i]));
+    const cell = [...Array(ROWS)].map((v,i) => Array.from(grid[i]));
     for (let i = 0; i < ROWS; i++) {
         for (let j = 0; j < COLS; j++) {
-            grid[i][j] = isAlive(snapshot, i, j);
+            grid[i][j] = isAlive(cell, i, j);
         }
     }
     draw();
@@ -121,7 +127,9 @@ draw = function() {
         for (let j = 0; j < COLS; j++) {
             if (!!grid[i][j]) {
                 ctx.fillRect(j * CELL + 1.0, i * CELL + 1.0, CELL - 1.0, CELL - 1.0);
-                ctx.fillStyle = fillColor;
+                // nextColor();
+                ctx.fillStyle = nextColor();
+                console.log({fillColor} {hexcode})
             }
         }
     }
@@ -192,3 +200,31 @@ document.addEventListener('keyup', keypress);
 
 // initialize app
 init();
+function countNeighbors(i, cell, j) {
+    let numNeighbors = 0;
+
+    //corners 
+    if (i == 0) {
+        // console.log(' in first case');
+        numNeighbors = cell[i][j + 1] + cell[i + 1][j] + cell[i + 1][j + 1]; //corner
+        if (j != 0) {
+            numNeighbors += cell[i][j - 1] + cell[i + 1][j + 1];
+        } else if (j != (COLS - 1)) {
+            numNeighbors += cell[i + 1][j + 1] + cell[i][j + 1];
+        }
+    } else if (i == (ROWS - 1)) {
+        numNeighbors = cell[i - 1][j - 1] + cell[i - 1][j] + cell[i][j - 1];
+        if (j != (COLS - 1)) {
+            numNeighbors += cell[i - 1][j + 1] + cell[i][j];
+        } else if (j != 0) {
+            numNeighbors += cell[i][j - 1] + cell[i - 1][j - 1];
+        }
+    } else { //general
+        // console.log(' in general case');
+        numNeighbors = cell[i - 1][j - 1] + cell[i - 1][j] + cell[i - 1][j + 1] + cell[i][j - 1] + cell[i][j + 1] + cell[i + 1][j - 1] + cell[i + 1][j] + cell[i + 1][j + 1];
+    }
+    return numNeighbors;
+}
+
+
+
