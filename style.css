@@ -17,7 +17,9 @@ h2 {
     text-align: center;
     padding: 10px;
     height: 400px;
-    width: 50%
+    width: 50%;
+    position: relative;
+    top: 300px;
 }
 
 .header img{
@@ -49,7 +51,7 @@ h2 {
     border-radius: 15px;
     box-shadow: 0 9px #999;
     position: relative;
-    top: 470px;
+    top: 800px;
 }
   
 .button:hover {background-color: #3e8e41}
@@ -60,10 +62,3 @@ h2 {
     transform: translateY(4px);
 }
 
-.flex {
-    display: flex;
-    flex-direction: column;
-}
-
-.flex -> .jscript {order: 1;}
-.flex -> .button {order: 2;}
