@@ -1,5 +1,6 @@
 body{
     background-color: black;
+    text-align: center;
 }
 
 h1 {
@@ -14,6 +15,16 @@ script {
     display: block;
 }
 
-p {
-    text-align:center;
+.header img{
+    float: left;
+    width: 100px;
+    height: 100px;
+    background: #555;
+}
+
+.header h1 {
+    position: relative;
+    top: 18px;
+    left: 10px;
+  
 }
