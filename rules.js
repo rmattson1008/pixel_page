@@ -84,4 +84,4 @@ function make2DArray(cols, rows) {
     return sum;
   }
 
-//   init();
+  init();
