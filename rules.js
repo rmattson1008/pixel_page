@@ -5,6 +5,14 @@
 // http://codingtra.in
 // http://patreon.com/codingtrain
 
+let INTERVAL = 250;
+
+// start auto evolution
+start = function() {
+    timer = setInterval(draw, INTERVAL);
+}
+
+
 // create and initialize grid
 
 function make2DArray(cols, rows) {
@@ -21,7 +29,7 @@ function make2DArray(cols, rows) {
   let resolution = 40;
   
   function setup() {
-    createCanvas(600, 400);
+    createCanvas(1200, 800); // need to be dynamic
     cols = width / resolution;
     rows = height / resolution;
   
@@ -84,6 +92,14 @@ function make2DArray(cols, rows) {
     return sum;
   }
 
+  keypress = function(ev) {
+    console.log(ev.code);
+    switch (ev.code) {
+        case 'Enter':
+            if (!timer) { start(); } else { stop(); }
+            break;
+    }
+  }
 
 
 
