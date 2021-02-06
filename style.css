@@ -22,12 +22,13 @@ script {
     background: #555;
     position: relative;
     top: -50px;
+    left: 30px;
 }
 
 .header h1 {
     position: relative;
     top: 18px;
-    left: 10px;
+    left: 40px;
   
 }
 
@@ -42,6 +43,8 @@ script {
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
+    position: relative;
+    top: 470px;
 }
   
 .button:hover {background-color: #3e8e41}
