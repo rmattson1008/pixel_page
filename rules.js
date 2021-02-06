@@ -84,7 +84,7 @@ function make2DArray(cols, rows) {
     return sum;
   }
 
-  init();
+
 
 
   // HTML: <script src="rules.js"></script>
