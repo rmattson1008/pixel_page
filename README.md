@@ -19,11 +19,8 @@
 [many links](http://blog.hvidtfeldts.net/index.php/generative-art-links/)
 
 
-<<<<<<< HEAD
 Resources from completed GOL "coding challenge"
 ![](https://www.youtube.com/watch?v=FWSR_7kZuYg&vl=en)
 ![](https://github.com/CodingTrain/website/tree/main/CodingChallenges/CC_085_The_Game_of_Life/P5)
 
 ![]https://www.w3schools.com/html/html_scripts.asp
-=======
->>>>>>> 8e69ded8a2f6a1db44bc9bd7f7e3614a63631fee
