@@ -129,7 +129,7 @@ draw = function() {
                 ctx.fillRect(j * CELL + 1.0, i * CELL + 1.0, CELL - 1.0, CELL - 1.0);
                 // nextColor();
                 ctx.fillStyle = nextColor();
-                console.log({fillColor} {hexcode})
+                console.log({fillColor}, {hexcode})
             }
         }
     }
