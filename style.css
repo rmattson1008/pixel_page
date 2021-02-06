@@ -5,6 +5,7 @@ body{
 
 h1 {
     text-align: center;
+    padding: 20px;
 }
 
 h2 {
@@ -13,6 +14,10 @@ h2 {
 
 .jscript {
     display: block;
+    text-align: center;
+    padding: 10px;
+    height: 400px;
+    width: 50%
 }
 
 .header img{

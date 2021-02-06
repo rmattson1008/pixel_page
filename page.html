@@ -14,26 +14,19 @@
 
         <h2 style = "color:white"> Jon Conway's Version</h2>
         <div class ="jscript">
-            <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.min.js"></script>
-            <script type="text/javascript" src="rules.js"></script> -->
+            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.min.js"></script>
+            <script type="text/javascript" src="rules.js"></script>
         </div>
 
-        <script>
-            function refresh()
-            {
-                var url = new URL("https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.min.js");
-               ('.jscript').load();
-            }
-         </script>
 
         <button class="button" onClick="window.location.reload();" >Play!</button>
         
-        <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.min.js"></script> -->
-        <!-- <script type="text/javascript" src="rules.js"></script> 
-        <button class="button" onclick="draw()" >Play!</button> -->
+        <div class ="version1">
+            <canvas id="canvas" width="1280px" height="720px"></canvas>
+            <!-- Ok so we need to link the button on this side with a button and a listening function on the rules page -->
+            <script src="rules2.js"></script> 
+        </div>
 
-        <!--<canvas id="canvas" width="1280px" height="720px"></canvas>
-         Ok so we need to link the button on this side with a button and a listening function on the rules page -->
-        <!--<script src="rules2.js"></script> -->
+        <!-- <button class="button" onclick="draw()" >Play!</button> -->
     </body>
 </html>
