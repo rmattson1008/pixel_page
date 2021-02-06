@@ -7,7 +7,7 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const lineColor = '#338';
 const fillColor = 'skyblue';
-const fillColor2 = 'crimson'
+// const fillColor2 = 'crimson'
 let seedIndex = -1;
 let timer = 0;
 let iterations = 0;
@@ -121,7 +121,7 @@ draw = function() {
         for (let j = 0; j < COLS; j++) {
             if (!!grid[i][j]) {
                 ctx.fillRect(j * CELL + 1.0, i * CELL + 1.0, CELL - 1.0, CELL - 1.0);
-                ctx.fillStyle = fillColor2;
+                ctx.fillStyle = fillColor;
             }
         }
     }
