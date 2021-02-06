@@ -85,3 +85,6 @@ function make2DArray(cols, rows) {
   }
 
   init();
+
+
+  // HTML: <script src="rules.js"></script>
