@@ -7,6 +7,7 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const lineColor = '#338';
 const fillColor = 'skyblue';
+const fillColor2 = 'crimson'
 let seedIndex = -1;
 let timer = 0;
 let iterations = 0;
@@ -18,7 +19,7 @@ let grid = null;
 // apply rules to a cell
 isAlive = function(snapshot, i, j) {
     let result = snapshot[i][j];
-    result = false;
+    // result = false;
     let numNeighbors = 0;
 
     //corners 
@@ -42,15 +43,22 @@ isAlive = function(snapshot, i, j) {
         numNeighbors = snapshot[i-1][j-1] + snapshot[i-1][j] + snapshot[i-1][j+1] + snapshot[i][j-1] + snapshot[i][j+1] + snapshot[i+1][j-1] + snapshot[i+1][j] + snapshot[i+1][j+1];
     }
     
-    if (numNeighbors < 2) {
-        result = false; // cell dies
-    } else if (2 <= numNeighbors <= 3 && snapshot[i][j] == true) {
-        result = true; // no change
-    } else if (numNeighbors == 3 && snapshot[i][j] == false) {
-        result = true; // cell is born
-    } else {
+
+    if (snapshot[i][j] == false && numNeighbors == 3 ){
+        result = true;
+    } else if (snapshot[i][j] == true && (numNeighbors < 2 || numNeighbors > 3)){
         result = false;
     }
+    // } else;
+    // if (numNeighbors < 2) {
+    //     result = false; // cell dies
+    // } else if (2 <= numNeighbors < 3 && snapshot[i][j] == true) {
+    //     result = true; // no change
+    // } else if (numNeighbors == 3 && snapshot[i][j] == false) {
+    //     result = true; // cell is born
+    // } else if (numNeighbors >= 3 && snapshot[i][j] == true){
+    //     result = false;
+    // }
 
     console.log(`${i} ${j} ${numNeighbors} ${result}`);
     return result;
@@ -113,6 +121,7 @@ draw = function() {
         for (let j = 0; j < COLS; j++) {
             if (!!grid[i][j]) {
                 ctx.fillRect(j * CELL + 1.0, i * CELL + 1.0, CELL - 1.0, CELL - 1.0);
+                ctx.fillStyle = fillColor2;
             }
         }
     }
