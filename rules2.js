@@ -25,7 +25,9 @@ nextColor = function() {
 
     while (0x0 <= fillColor < 0xFFFFFF) {
         // fillColor += 0x2000;
-        fillColor += 0x1000;
+        // fillColor += 0x10;
+        fillColor += 0x21212;
+        // fillColor += 0x100000;
         // fillColor *= fillColor;
         // fillColor *= 0x20;
         // fillColor += 0x2;
