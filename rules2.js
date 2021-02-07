@@ -1,6 +1,7 @@
 
-let CELL = 16;
-let INTERVAL = 250;
+// let CELL = 16;
+let CELL = 12;
+let INTERVAL = 150;
 const STORAGEKEY = 'gol-seed';
 const status = document.getElementById('status');
 const canvas = document.getElementById('canvas');
