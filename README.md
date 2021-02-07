@@ -1,6 +1,6 @@
 # Welcome to our Experiment!
-We've implemented Jon Conway's game of life and then had fun trying to change the rules of the game. You can experiment by seeding the game with seeds that may form stationary shapes, create cool movement, for fill the board with patterns. Get started by clicking 2+ pixels on the board.
-![](./current2.png)
+We've implemented Jon Conway's game of life and then had fun trying to change the rules of the game. You can experiment by seeding the game with seeds that may form stationary shapes, create cool movement, for fill the board with patterns. Get started by clicking 2+ pixels on the board.  
+
 ![](./rose.png )
 ![](./face.png )
 
@@ -18,7 +18,7 @@ Some of our code was adapted from work by Daniel Shiffman:
 [Coding Tutorial](https://www.youtube.com/watch?v=FWSR_7kZuYg&vl=en)  
 [Coding Example](https://github.com/CodingTrain/website/tree/main/CodingChallenges/CC_085_The_Game_of_Life/P5).  
    
-[Blog Inspiration](https://www.freecodecamp.org/news/how-to-create-generative-art-in-less-than-100-lines-of-code-d37f379859f/)
+[Blog Inspiration](https://www.freecodecamp.org/news/how-to-create-generative-art-in-less-than-100-lines-of-code-d37f379859f/)  
 [Links to Generative Art](http://blog.hvidtfeldts.net/index.php/generative-art-links/)
 
 [HTML Tools](https://www.w3schools.com/html/html_scripts.asp)
