@@ -6,12 +6,20 @@ body{
 h1 {
     text-align: center;
     padding: 20px;
-    position: absolute;
+
 }
 
 h2 {
     text-align: center;
     padding: 20px;
+    position:relative;
+    right: 35px;
+
+}
+h3 {
+    text-align:center;
+    position:relative;
+    padding: 50px;
 }
 
 .jscript {
@@ -42,7 +50,6 @@ img {
 .header h1 {
     position: relative;
     top: 18px;
-    left: 40px;
   
 }
 
