@@ -1,6 +1,6 @@
 # Welcome to our Experiment!
 We've implemented Jon Conway's gmae of life and then had fun trying to change the rules of the game. You can experiment by seeding the game with seeds that may form stationary shapes, create cool movement, for fill the board with patterns;
-![](current1.png)
+![](./current1.png)
 
 
 
