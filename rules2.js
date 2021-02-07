@@ -26,12 +26,12 @@ nextColor = function() {
     while (0x0 <= fillColor < 0xFFFFFF) {
         // fillColor += 0x2000;
         // fillColor += 0x10;
-        fillColor += 0x21212;
+        fillColor += 0x102030;
         // fillColor += 0x100000;
         // fillColor *= fillColor;
         // fillColor *= 0x20;
         // fillColor += 0x2;
-        fillColor % 0xFFFFFF;
+        fillColor %= 0xFFFFFF;
         console.log(fillColor);
         return;
         // let hexcode = "#" + fillColor.toString(16).padStart(6, "0");
