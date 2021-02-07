@@ -24,11 +24,11 @@ nextColor = function() {
     // copied 
 
     while (0x0 <= fillColor < 0xFFFFFF) {
-        fillColor += 0x2000;
-        // fillColor += 0x1000;
+        // fillColor += 0x2000;
+        fillColor += 0x1000;
         // fillColor *= fillColor;
         // fillColor *= 0x20;
-        fillColor += 0x2;
+        // fillColor += 0x2;
         fillColor % 0xFFFFFF;
         console.log(fillColor);
         return;
@@ -49,7 +49,7 @@ isAlive = function(cell, i, j) {
         // ctx.fillStyle = nextColor();
         result = true;
         color_vals[i][j] = fillColor;
-    } else if (result == true && (numNeighbors < 2) ){ // || numNeighbors > 3)){
+    } else if (result == true && (numNeighbors < 2 || numNeighbors > 8)) {
         result = false;
         // color_vals[i][j] = 0x0;
     } else if (result == false && numNeighbors >= 5) {
