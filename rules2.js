@@ -23,13 +23,15 @@ let gen_color = 0xAD33BF;
 nextColor = function() {
     // copied 
 
-    while (0x0 <= fillColor < 0xFFFFFF) {
-        fillColor += 0x10;
-        fillColor -= 0x1;
+    // while (0x0 <= fillColor < 0xFFFFFF) {
+        fillColor += 0x11111;
+        // fillColor = 0x10;
+        // fillColor += 0x1;
+        fillColor % 0xFFFFFF;
         return;
         // let hexcode = "#" + fillColor.toString(16).padStart(6, "0");
         // return hexcode;
-    }
+    // }
     
   
 }
