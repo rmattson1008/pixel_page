@@ -24,7 +24,8 @@ nextColor = function() {
     // copied 
 
     while (0x0 <= fillColor < 0xFFFFFF) {
-        fillColor += 0x63
+        fillColor += 0x10;
+        fillColor -= 0x1;
         return;
         // let hexcode = "#" + fillColor.toString(16).padStart(6, "0");
         // return hexcode;
@@ -114,12 +115,12 @@ draw = function() {
             if (!!grid[i][j]) {
                 COLOR = "#" + color_vals[i][j].toString(16).padStart(6, "0");
                 ctx.fillStyle = COLOR;
+                console.log(COLOR);
                 ctx.fillRect(j * CELL + 1.0, i * CELL + 1.0, CELL - 1.0, CELL - 1.0);
                 // nextColor();
                 // ctx.fillStyle = COLOR;
                 // nextColor();
                 // console.log({"here"});
-               console.log(COLOR);
             }
         }
     }
