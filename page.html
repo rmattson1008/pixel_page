@@ -5,6 +5,7 @@
     <head>
         <link rel ="stylesheet" href ="style.css">
         <title>Playing with the Game of Life</title>
+
     </head>
     <body>
         <div class="header">
@@ -12,28 +13,38 @@
             <img src = "doggo.jfif" alt = "doggo">
         </div>
 
-        <h2 style = "color:white"> Jon Conway's Version</h2>
+        <h2 style = "color:white"> John Conway's Version</h2>
+
+        <img src = "Game_of_life_animated_glider_2.gif" alt = "John">
+
+        
+        <!--<div class = "jscript">
+            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.min.js"></script>
+            <script type="text/javascript" src="rules.js"></script>
+        </div> 
+            
+        <button class="button" onClick="window.location.reload();" >Play!</button> -->
+        
+
+
+        <h2 style = "color:white"> Our Version</h2>
+        
         <div class ="jscript">
-            <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.min.js"></script>
-            <script type="text/javascript" src="rules.js"></script> -->
+            <canvas id="canvas" width="1280px" height="720px"></canvas>
+            <script src="rules2.js"></script> 
+
         </div>
 
-        <script>
-            function refresh()
-            {
-                var url = new URL("https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.min.js");
-               ('.jscript').load(url);
-            }
-         </script>
+        <button class="button" onClick="draw();" >Play!</button>
 
+<<<<<<< HEAD
         <!-- <button class="button" onclick={refresh} >Play!</button> -->
         
         <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.min.js"></script> -->
         <!-- <script type="text/javascript" src="rules.js"></script> -->
         <!-- <button class="button" onclick="draw()" >Play!</button> -->
+=======
+>>>>>>> 6d0e73241c394bd27c46681711f1c523b7df267c
 
-        <canvas id="canvas" width="1280px" height="720px"></canvas>
-        <!-- Ok so we need to link the button on this side with a button and a listening function on the rules page -->
-        <script src="rules2.js"></script>
     </body>
 </html>
