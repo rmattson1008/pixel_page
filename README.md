@@ -1,6 +1,6 @@
 # Welcome to our Experiment!
 We've implemented Jon Conway's gmae of life and then had fun trying to change the rules of the game. You can experiment by seeding the game with seeds that may form stationary shapes, create cool movement, for fill the board with patterns;
-![](/current1.png)
+![](current1.png)
 
 
 
@@ -19,7 +19,7 @@ Some of our code was adapted from work by Daniel Shiffman:
 [Blog Inspiration](https://www.freecodecamp.org/news/how-to-create-generative-art-in-less-than-100-lines-of-code-d37f379859f/)
 [Links to Generative Art](http://blog.hvidtfeldts.net/index.php/generative-art-links/)
 
-[HTML Tools]https://www.w3schools.com/html/html_scripts.asp
+[HTML Tools](https://www.w3schools.com/html/html_scripts.asp)
 
 
 
