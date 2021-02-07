@@ -32,6 +32,7 @@ nextColor = function() {
         // fillColor *= 0x20;
         // fillColor += 0x2;
         fillColor %= 0xFFFFFF;
+        // fillColor %= 0xFFFFFF;
         console.log(fillColor);
         return;
         // let hexcode = "#" + fillColor.toString(16).padStart(6, "0");
