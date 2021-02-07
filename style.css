@@ -9,6 +9,10 @@ h1 {
 
 }
 
+ol {
+    list-style-position: inside;
+}
+
 h2 {
     text-align: center;
     padding: 20px;
