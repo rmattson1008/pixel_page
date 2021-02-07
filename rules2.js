@@ -157,20 +157,7 @@ toggle = function(ev) {
     draw();
 }
 
-var ext = document.getElementsByClassName("button")[0];
 
-ext.onClick = function(ev) {
-    console.log(ev.code);
-    switch(ev.code) {
-        default:
-        if (!timer) { 
-            start(); 
-        } else { stop(); 
-        }
-            break;
-    }
-    
-}
 
 keypress = function(ev) {
     console.log(ev.code);
@@ -225,6 +212,8 @@ canvas.addEventListener('mouseup', toggle);
 
 // handle key presses
 document.addEventListener('keyup', keypress);
+
+
 
 // initialize app
 init();
