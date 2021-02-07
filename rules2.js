@@ -163,6 +163,7 @@ toggle = function(ev) {
 }
 
 
+
 keypress = function(ev) {
     console.log(ev.code);
     switch (ev.code) {
@@ -216,6 +217,8 @@ canvas.addEventListener('mouseup', toggle);
 
 // handle key presses
 document.addEventListener('keyup', keypress);
+
+
 
 // initialize app
 init();
