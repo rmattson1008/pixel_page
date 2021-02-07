@@ -18,16 +18,9 @@ h2 {
     padding: 10px;
     height: 400px;
     width: 50%;
-    position: absolute;
-    top: 300px;
+    position: relative;
 }
 
-.version1{
-    display: block;
-    text-align: center;
-    padding: 10px;
-    position:absolute;
-}
 
 .header img{
     float: left;
@@ -58,7 +51,7 @@ h2 {
     border-radius: 15px;
     box-shadow: 0 9px #999;
     position: relative;
-    top: 1000px;
+    top: 400px;
 }
   
 .button:hover {background-color: #3e8e41}
