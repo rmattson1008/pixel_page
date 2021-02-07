@@ -8,7 +8,7 @@ const ctx = canvas.getContext('2d');
 const lineColor = '#338';
 COLOR = 0x0; 
 
-let fillColor = 0x0;
+let fillColor = 0xAD33BF;
 // const fillColor2 = 'crimson'
 let seedIndex = -1;
 let timer = 0;
@@ -22,9 +22,9 @@ let gen_color = 0xAD33BF;
 nextColor = function() {
     // copied 
 
-    while (0x0 <= fillColor < 0x1000000) {
-        fillColor += 0x64;
-        return fillColor;
+    while (0x0 <= fillColor < 0xFFFFFF) {
+        fillColor += 0x63
+        return;
         // let hexcode = "#" + fillColor.toString(16).padStart(6, "0");
         // return hexcode;
     }
@@ -58,10 +58,10 @@ isAlive = function(cell, i, j) {
     if (result == false && numNeighbors == 3) {
         // ctx.fillStyle = nextColor();
         result = true;
-        color_vals[i][j] = gen_color;
-    } else if (result == true && (numNeighbors < 2 )){//|| numNeighbors > 3)){
+        color_vals[i][j] = fillColor;
+    } else if (result == true && (numNeighbors < 2) ){// || numNeighbors > 3)){
         result = false;
-        // color_vals[i][j] = null;
+        // color_vals[i][j] = 0x0;
     }
     // } else;
     // if (numNeighbors < 2) {
@@ -80,13 +80,15 @@ isAlive = function(cell, i, j) {
 
 // evolve lifecycle
 evolve = function() {
-    gen_color = nextColor();
+    nextColor();
     const cell = [...Array(ROWS)].map((v,i) => Array.from(grid[i]));
+    // const cell_colours = [...Array(ROWS)].map((v,i) => Array.from(color_vals[i]));
     for (let i = 0; i < ROWS; i++) {
         for (let j = 0; j < COLS; j++) {
             grid[i][j] = isAlive(cell, i, j);
         }
     }
+    
     draw();
     iterations += 1;
     feedback();
@@ -143,7 +145,7 @@ draw = function() {
                 // ctx.fillStyle = COLOR;
                 // nextColor();
                 // console.log({"here"});
-               console.log(`COLOR`);
+               console.log(COLOR);
             }
         }
     }
@@ -165,10 +167,17 @@ toggle = function(ev) {
     // calculate cell from mouse position
     let i = Math.floor(ev.offsetY / CELL);
     let j = Math.floor(ev.offsetX / CELL);
-    // console.log(i + ' ' + j);
+    console.log(i + ' ' + j);
 
-    grid[i][j] = !grid[i][j];
-    color_vals[i][j] = gen_color;
+    if (grid[i][j]== false ){
+        grid[i][j] = !grid[i][j];
+        color_vals[i][j] = fillColor;
+    } else {
+        grid[i][j] = !grid[i][j];
+        color_vals[i][j] = 0x0;
+    }
+    
+    
     draw();
 }
 
@@ -199,9 +208,11 @@ init = function() {
     COLS = Math.floor(canvas.clientWidth / CELL) + 1;
     console.log(`${ROWS} ${COLS}`);
     grid = [...Array(ROWS)].map(() => Array(COLS).fill(false));
+    // color_vals = [...Array(ROWS)].map(() => Array(COLS).fill(0x0));
+    // grid = make2DArray(COLS, ROWS);
 
-    color_vals = make2DArray(ROWS,COLS);
-    gen_color = 0xAD33BF; // TODO - error check
+    color_vals = make2DArray(COLS,ROWS);
+    // gen_color = 0xAD33BF; // TODO - error check
     saved = JSON.parse(window.localStorage.getItem(STORAGEKEY) || '[]');
     iterations = 0;
     ctx.strokeStyle = lineColor;
@@ -212,9 +223,9 @@ init = function() {
 
 // adapted
 function make2DArray(COLS, ROWS) {
-    let arr = new Array(COLS);
+    let arr = new Array(ROWS);
     for (let i = 0; i < arr.length; i++) {
-      arr[i] = new Array(ROWS);
+      arr[i] = new Array(COLS);
     }
     return arr;
   }
