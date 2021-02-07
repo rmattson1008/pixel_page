@@ -9,7 +9,7 @@ const ctx = canvas.getContext('2d');
 const lineColor = '#338';
 COLOR = 0x0; 
 
-let fillColor = 0xAD33BF;
+let fillColor = 0x50B1A8;
 // const fillColor2 = 'crimson'
 let seedIndex = -1;
 let timer = 0;
@@ -23,15 +23,18 @@ let gen_color = 0xAD33BF;
 nextColor = function() {
     // copied 
 
-    // while (0x0 <= fillColor < 0xFFFFFF) {
-        fillColor += 0x11111;
-        // fillColor = 0x10;
-        // fillColor += 0x1;
+    while (0x0 <= fillColor < 0xFFFFFF) {
+        fillColor += 0x2000;
+        // fillColor += 0x1000;
+        // fillColor *= fillColor;
+        // fillColor *= 0x20;
+        fillColor += 0x2;
         fillColor % 0xFFFFFF;
+        console.log(fillColor);
         return;
         // let hexcode = "#" + fillColor.toString(16).padStart(6, "0");
         // return hexcode;
-    // }
+    }
     
   
 }
@@ -42,13 +45,15 @@ isAlive = function(cell, i, j) {
     let numNeighbors = countNeighbors(i, cell, j);
     
     // Rules
-    if (result == false && numNeighbors == 3) {
+    if (result == false && numNeighbors == 2) {
         // ctx.fillStyle = nextColor();
         result = true;
         color_vals[i][j] = fillColor;
-    } else if (result == true && (numNeighbors < 2) ){// || numNeighbors > 3)){
+    } else if (result == true && (numNeighbors < 2) ){ // || numNeighbors > 3)){
         result = false;
         // color_vals[i][j] = 0x0;
+    } else if (result == false && numNeighbors >= 5) {
+        result = true;
     }
 
     // console.log(`${i} ${j} ${numNeighbors} ${result}`);
