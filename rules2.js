@@ -1,6 +1,7 @@
 
-let CELL = 16;
-let INTERVAL = 250;
+// let CELL = 16;
+let CELL = 12;
+let INTERVAL = 150;
 const STORAGEKEY = 'gol-seed';
 const status = document.getElementById('status');
 const canvas = document.getElementById('canvas');
@@ -22,31 +23,17 @@ let gen_color = 0xAD33BF;
 nextColor = function() {
     // copied 
 
-    while (0x0 <= fillColor < 0xFFFFFF) {
-        fillColor += 0x63
+    // while (0x0 <= fillColor < 0xFFFFFF) {
+        fillColor += 0x11111;
+        // fillColor = 0x10;
+        // fillColor += 0x1;
+        fillColor % 0xFFFFFF;
         return;
         // let hexcode = "#" + fillColor.toString(16).padStart(6, "0");
         // return hexcode;
-    }
+    // }
     
-    
-    // var stringToColour = function(str) {
-    //     var hash = 0;
-    //     for (var i = 0; i < str.length; i++) {
-    //       hash = str.charCodeAt(i) + ((hash << 5) - hash);
-    //     }
-    //     var colour = '#';
-    //     for (var i = 0; i < 3; i++) {
-    //       var value = (hash >> (i * 8)) & 0xFF;
-    //       colour += ('00' + value.toString(16)).substr(-2);
-    //     }
-    //     return colour;
-    //   }
-
-
-    // Number(color)
-    // color--;
-    // return '#' + color;
+  
 }
 // apply rules to a cell
 isAlive = function(cell, i, j) {
@@ -63,16 +50,6 @@ isAlive = function(cell, i, j) {
         result = false;
         // color_vals[i][j] = 0x0;
     }
-    // } else;
-    // if (numNeighbors < 2) {
-    //     result = false; // cell dies
-    // } else if (2 <= numNeighbors < 3 && cell[i][j] == true) {
-    //     result = true; // no change
-    // } else if (numNeighbors == 3 && cell[i][j] == false) {
-    //     result = true; // cell is born
-    // } else if (numNeighbors >= 3 && cell[i][j] == true){
-    //     result = false;
-    // }
 
     // console.log(`${i} ${j} ${numNeighbors} ${result}`);
     return result;
@@ -138,14 +115,14 @@ draw = function() {
     for (let i = 0; i < ROWS; i++) {
         for (let j = 0; j < COLS; j++) {
             if (!!grid[i][j]) {
-                ctx.fillRect(j * CELL + 1.0, i * CELL + 1.0, CELL - 1.0, CELL - 1.0);
                 COLOR = "#" + color_vals[i][j].toString(16).padStart(6, "0");
                 ctx.fillStyle = COLOR;
+                console.log(COLOR);
+                ctx.fillRect(j * CELL + 1.0, i * CELL + 1.0, CELL - 1.0, CELL - 1.0);
                 // nextColor();
                 // ctx.fillStyle = COLOR;
                 // nextColor();
                 // console.log({"here"});
-               console.log(COLOR);
             }
         }
     }
@@ -174,9 +151,8 @@ toggle = function(ev) {
         color_vals[i][j] = fillColor;
     } else {
         grid[i][j] = !grid[i][j];
-        color_vals[i][j] = 0x0;
+        // color_vals[i][j] = 0x0;
     }
-    
     
     draw();
 }
@@ -222,10 +198,10 @@ init = function() {
     COLS = Math.floor(canvas.clientWidth / CELL) + 1;
     console.log(`${ROWS} ${COLS}`);
     grid = [...Array(ROWS)].map(() => Array(COLS).fill(false));
-    // color_vals = [...Array(ROWS)].map(() => Array(COLS).fill(0x0));
+    color_vals = [...Array(ROWS)].map(() => Array(COLS).fill(fillColor));
     // grid = make2DArray(COLS, ROWS);
 
-    color_vals = make2DArray(COLS,ROWS);
+    // color_vals = make2DArray(COLS,ROWS);
     // gen_color = 0xAD33BF; // TODO - error check
     saved = JSON.parse(window.localStorage.getItem(STORAGEKEY) || '[]');
     iterations = 0;
@@ -243,8 +219,6 @@ function make2DArray(COLS, ROWS) {
     }
     return arr;
   }
-
-
 
 // handle mouse clicks
 canvas.addEventListener('mouseup', toggle);
