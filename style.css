@@ -6,12 +6,30 @@ body{
 h1 {
     text-align: center;
     padding: 20px;
-    position: absolute;
+
 }
 
 h2 {
     text-align: center;
     padding: 20px;
+    position:relative;
+    right: 35px;
+
+}
+h3 {
+    text-align:center;
+    position:relative;
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+.cool h2 {
+    text-align: center;
+    position: relative;
+    padding: 50px 20px 20px 20px;
+    left: 2px;
 }
 
 .jscript {
@@ -42,7 +60,6 @@ img {
 .header h1 {
     position: relative;
     top: 18px;
-    left: 40px;
   
 }
 
@@ -59,6 +76,7 @@ img {
     box-shadow: 0 9px #999;
     position: relative;
     top: 400px;
+    left: 35px;
 }
   
 .button:hover {background-color: #3e8e41}
