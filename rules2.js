@@ -70,7 +70,7 @@ isAlive = function(cell, i, j) {
     let numNeighbors = countNeighbors(i, cell, j);
     
     // Rules
-    if (result == false && numNeighbors == 3) {
+    if (result == false && numNeighbors == 2){
         // ctx.fillStyle = nextColor();
         result = true;
         color_vals[i][j] = fillColor;
