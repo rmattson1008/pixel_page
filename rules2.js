@@ -7,9 +7,9 @@ const status = document.getElementById('status');
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const lineColor = '#338';
-COLOR = 0x0; 
+let COLOR = 0x0; //TODO - clean
 
-let fillColor = 0x50B1A8;
+let fillColor = 0xFFFFFE;
 // const fillColor2 = 'crimson'
 let seedIndex = -1;
 let timer = 0;
@@ -20,19 +20,41 @@ let grid = null;
 let color_vals;
 let gen_color = 0xAD33BF;
 
+// TODO - enter is sticky
 nextColor = function() {
-    // copied 
 
     while (0x0 <= fillColor < 0xFFFFFF) {
+        // fillColor -= 0x010101;
+
+        let red = 0x010000;
+        let green = 0x000200;
+        let blue = 0x000003;
+        let scale = 7;
+        let seed = Math.floor(Math.random()*2);
+
+
+        if (seed == 0) {
+            fillColor += red * scale;
+        } else if (seed == 1){
+            fillColor += green * scale;
+        } else if (seed == 2) {
+            fillColor += blue * scale;
+        }
+
         // fillColor += 0x2000;
         // fillColor += 0x10;
-        fillColor += 0x102030;
+        // fillColor -= 0x010101;
+        // fillColor -= 0x05070B;
+        // fillColor = Math.random();
+        // step = Math.floor(Math.random()*1118481);
+        // fillColor -= 0x010203;
         // fillColor += 0x100000;
         // fillColor *= fillColor;
         // fillColor *= 0x20;
         // fillColor += 0x2;
-        fillColor %= 0xFFFFFF;
         // fillColor %= 0xFFFFFF;
+        // fillColor += step;
+        fillColor %= 0xFFFFFF;
         console.log(fillColor);
         return;
         // let hexcode = "#" + fillColor.toString(16).padStart(6, "0");
@@ -48,15 +70,16 @@ isAlive = function(cell, i, j) {
     let numNeighbors = countNeighbors(i, cell, j);
     
     // Rules
-    if (result == false && numNeighbors == 2) {
+    if (result == false && numNeighbors == 3) {
         // ctx.fillStyle = nextColor();
         result = true;
         color_vals[i][j] = fillColor;
-    } else if (result == true && (numNeighbors < 2 || numNeighbors > 8)) {
+    } else if (result == true && (numNeighbors < 3)) {
         result = false;
-        // color_vals[i][j] = 0x0;
+        color_vals[i][j] = 0x0;
     } else if (result == false && numNeighbors >= 5) {
         result = true;
+        color_vals[i][j] = fillColor;
     }
 
     // console.log(`${i} ${j} ${numNeighbors} ${result}`);
