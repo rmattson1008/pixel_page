@@ -30,16 +30,16 @@ nextColor = function() {
         let green = 0x000200;
         let blue = 0x000003;
         let scale = 10;
-        let seed = Math.floor(Math.random()*2);
+        let seed = Math.floor(Math.random()*3);
 
 
         if (seed == 0) {
             fillColor += red * scale;
         } else if (seed == 1){
-            // fillColor += green * scale;
-            fillColor += blue * scale;
-        } else {
+            fillColor += green * scale;
             // fillColor += blue * scale;
+        } else {
+            fillColor += blue * scale;
         }
 
         // fillColor += 0x2000;
