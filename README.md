@@ -1,7 +1,7 @@
 # Welcome to our Experiment!
 We've implemented Jon Conway's game of life and then had fun trying to change the rules of the game. You can experiment by seeding the game with seeds that may form stationary shapes, create cool movement, for fill the board with patterns. Get started by clicking 2+ pixels on the board.  
 
-![](./img/rose.png )
+
 ![](./img/face.png )
 ![](./img/full_pic.png)
 
