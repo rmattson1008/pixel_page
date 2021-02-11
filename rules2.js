@@ -1,6 +1,6 @@
 
 // let CELL = 16;
-let CELL = 10;
+let CELL = 8;
 let INTERVAL = 150;
 const STORAGEKEY = 'gol-seed';
 const status = document.getElementById('status');
@@ -28,7 +28,7 @@ nextColor = function() {
 
         let red = 0x020000;
         let green = 0x000200;
-        let blue = 0x000003;
+        let blue = 0x000002;
         let scale = 10;
         let seed = Math.floor(Math.random()*3);
 
@@ -42,24 +42,9 @@ nextColor = function() {
             fillColor += blue * scale;
         }
 
-        // fillColor += 0x2000;
-        // fillColor += 0x10;
-        // fillColor -= 0x010101;
-        // fillColor -= 0x05070B;
-        // fillColor = Math.random();
-        // step = Math.floor(Math.random()*1118481);
-        // fillColor -= 0x010203;
-        // fillColor += 0x100000;
-        // fillColor *= fillColor;
-        // fillColor *= 0x20;
-        // fillColor += 0x2;
-        // fillColor %= 0xFFFFFF;
-        // fillColor += step;
         fillColor %= 0xFFFFFF;
         console.log(fillColor);
         return;
-        // let hexcode = "#" + fillColor.toString(16).padStart(6, "0");
-        // return hexcode;
     }
     
   
@@ -151,10 +136,6 @@ draw = function() {
                 ctx.fillStyle = COLOR;
                 console.log(COLOR);
                 ctx.fillRect(j * CELL + 1.0, i * CELL + 1.0, CELL - 1.0, CELL - 1.0);
-                // nextColor();
-                // ctx.fillStyle = COLOR;
-                // nextColor();
-                // console.log({"here"});
             }
         }
     }
@@ -218,10 +199,6 @@ init = function() {
     console.log(`${ROWS} ${COLS}`);
     grid = [...Array(ROWS)].map(() => Array(COLS).fill(false));
     color_vals = [...Array(ROWS)].map(() => Array(COLS).fill(fillColor));
-    // grid = make2DArray(COLS, ROWS);
-
-    // color_vals = make2DArray(COLS,ROWS);
-    // gen_color = 0xAD33BF; // TODO - error check
     saved = JSON.parse(window.localStorage.getItem(STORAGEKEY) || '[]');
     iterations = 0;
     ctx.strokeStyle = lineColor;
@@ -246,13 +223,10 @@ canvas.addEventListener('mouseup', toggle);
 document.addEventListener('keyup', keypress);
 
 
-
-// initialize app
-init();
 function countNeighbors(i, cell, j) {
     let numNeighbors = 0;
 
-    //corners 
+    // Deal with corners 
     if (i == 0) {
         // console.log(' in first case');
         numNeighbors = cell[i][j + 1] + cell[i + 1][j] + cell[i + 1][j + 1]; //corner
@@ -268,12 +242,14 @@ function countNeighbors(i, cell, j) {
         } else if (j != 0) {
             numNeighbors += cell[i][j - 1] + cell[i - 1][j - 1];
         }
-    } else { //general
+    } else { // general case 
         // console.log(' in general case');
         numNeighbors = cell[i - 1][j - 1] + cell[i - 1][j] + cell[i - 1][j + 1] + cell[i][j - 1] + cell[i][j + 1] + cell[i + 1][j - 1] + cell[i + 1][j] + cell[i + 1][j + 1];
     }
     return numNeighbors;
 }
 
+
+init();
 
 
