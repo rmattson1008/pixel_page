@@ -1,6 +1,6 @@
 
 // let CELL = 16;
-let CELL = 12;
+let CELL = 10;
 let INTERVAL = 150;
 const STORAGEKEY = 'gol-seed';
 const status = document.getElementById('status');
@@ -26,19 +26,20 @@ nextColor = function() {
     while (0x0 <= fillColor < 0xFFFFFF) {
         // fillColor -= 0x010101;
 
-        let red = 0x010000;
+        let red = 0x020000;
         let green = 0x000200;
         let blue = 0x000003;
-        let scale = 7;
+        let scale = 10;
         let seed = Math.floor(Math.random()*2);
 
 
         if (seed == 0) {
             fillColor += red * scale;
         } else if (seed == 1){
-            fillColor += green * scale;
-        } else if (seed == 2) {
+            // fillColor += green * scale;
             fillColor += blue * scale;
+        } else {
+            // fillColor += blue * scale;
         }
 
         // fillColor += 0x2000;
@@ -74,10 +75,10 @@ isAlive = function(cell, i, j) {
         // ctx.fillStyle = nextColor();
         result = true;
         color_vals[i][j] = fillColor;
-    } else if (result == true && (numNeighbors < 3)) {
+    } else if (result == true && (numNeighbors < 4)) {
         result = false;
         color_vals[i][j] = 0x0;
-    } else if (result == false && numNeighbors >= 5) {
+    } else if (result == false && numNeighbors > 4) {
         result = true;
         color_vals[i][j] = fillColor;
     }
